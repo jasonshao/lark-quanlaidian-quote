@@ -1,0 +1,12 @@
+{
+  "request_id": "req_20260421120000_demo",
+  "form_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "steps": {
+    "create": {"status": "done", "data": {"quote_id": "q_20260421120000_demo", "totals": {"list": 318600, "final": 223020}, "pricing_version": "small-segment-v2.3", "request_id": "req_20260421120000_demo"}, "attempts": 0, "error": "", "last_at": "2026-04-21T12:00:07+00:00"},
+    "pdf":    {"status": "done", "data": {"file_token": "ft_pdf_demo", "filename": "演示正餐火锅-全来店-报价单-20260421.pdf", "local_path": "tmp/演示正餐火锅-全来店-报价单-20260421.pdf"}, "attempts": 0, "error": "", "last_at": "2026-04-21T12:00:08+00:00"},
+    "xlsx":   {"status": "done", "data": {"file_token": "ft_xlsx_demo", "filename": "演示正餐火锅-全来店-报价单-20260421.xlsx", "local_path": "tmp/演示正餐火锅-全来店-报价单-20260421.xlsx"}, "attempts": 0, "error": "", "last_at": "2026-04-21T12:00:09+00:00"},
+    "drive":  {"status": "done", "data": {"pdf_url": "https://demo.feishu.cn/drive/pdf_demo", "xlsx_url": "https://demo.feishu.cn/drive/xlsx_demo"}, "attempts": 0, "error": "", "last_at": "2026-04-21T12:00:14+00:00"},
+    "base":   {"status": "done", "data": {"record_id": "rec_demo", "url": "https://demo.feishu.cn/base/rec_demo", "created": true}, "attempts": 0, "error": "", "last_at": "2026-04-21T12:00:15+00:00"},
+    "im":     {"status": "done", "data": {"message_id": "om_demo"}, "attempts": 0, "error": "", "last_at": "2026-04-21T12:00:16+00:00"}
+  }
+}

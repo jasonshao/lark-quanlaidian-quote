@@ -1,0 +1,15 @@
+{
+  "request_id": "req_20260421120000_demo",
+  "quote_id": "q_20260421120000_demo",
+  "preview": {
+    "brand": "演示正餐火锅",
+    "meal_type": "正餐",
+    "stores": 20,
+    "package": "正餐连锁营销旗舰版",
+    "discount": 0.3,
+    "totals": {"list": 318600, "final": 223020},
+    "items": []
+  },
+  "approval": {"required": false, "state": "not_required", "reasons": []},
+  "pricing_version": "small-segment-v2.3"
+}

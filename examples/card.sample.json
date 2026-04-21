@@ -1,0 +1,22 @@
+{
+  "msg_type": "interactive",
+  "card": {
+    "config": {"wide_screen_mode": true},
+    "header": {"title": {"tag": "plain_text", "content": "🧾 新报价 · 演示正餐火锅"}, "template": "blue"},
+    "elements": [
+      {"tag": "div", "fields": [
+        {"is_short": true, "text": {"tag": "lark_md", "content": "**门店**\n20"}},
+        {"is_short": true, "text": {"tag": "lark_md", "content": "**套餐**\n正餐连锁营销旗舰版"}},
+        {"is_short": true, "text": {"tag": "lark_md", "content": "**标价**\n¥318,600"}},
+        {"is_short": true, "text": {"tag": "lark_md", "content": "**成交价**\n¥223,020"}},
+        {"is_short": false, "text": {"tag": "lark_md", "content": "**折扣** 30.0%"}}
+      ]},
+      {"tag": "action", "actions": [
+        {"tag": "button", "text": {"tag": "plain_text", "content": "查看 PDF"}, "type": "primary", "url": "https://demo.feishu.cn/drive/pdf_demo"},
+        {"tag": "button", "text": {"tag": "plain_text", "content": "Excel"}, "type": "default", "url": "https://demo.feishu.cn/drive/xlsx_demo"},
+        {"tag": "button", "text": {"tag": "plain_text", "content": "台账记录"}, "type": "default", "url": "https://demo.feishu.cn/base/rec_demo"}
+      ]},
+      {"tag": "note", "elements": [{"tag": "plain_text", "content": "by 销售 · 2026-04-21 20:00"}]}
+    ]
+  }
+}
