@@ -1,0 +1,16 @@
+# Secrets
+.env
+
+# Runtime state
+.quanlaidian-flow-state/
+tmp/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.venv/
+
+# OS
+.DS_Store
