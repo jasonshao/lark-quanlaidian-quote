@@ -53,12 +53,18 @@ def test_full_flow_mock(mock_server, tmp_dirs, monkeypatch):
     assert any(tmp_dirs["download_dir"].glob("*.xlsx"))
 
     log = json.loads(tmp_dirs["dryrun_log"].read_text(encoding="utf-8"))
-    verbs = [" ".join(e["args"][:3]) for e in log]
-    assert verbs.count("drive file list") == 2, f"verbs={verbs}"
-    assert verbs.count("drive upload") == 2, f"verbs={verbs}"
-    assert verbs.count("base record search") == 1, f"verbs={verbs}"
-    assert verbs.count("base record create") == 1, f"verbs={verbs}"
-    assert verbs.count("im message send") == 1, f"verbs={verbs}"
+    # "Verb" = first 2 or 3 args; some lark-cli commands have 3-word verbs
+    # (e.g., "drive file list"), others have 2 ("drive upload"). We detect by
+    # looking at specific prefixes.
+    def count_prefix(prefix: tuple[str, ...]) -> int:
+        n = len(prefix)
+        return sum(1 for e in log if tuple(e["args"][:n]) == prefix)
+
+    assert count_prefix(("drive", "file", "list")) == 2, f"log={log}"
+    assert count_prefix(("drive", "upload")) == 2, f"log={log}"
+    assert count_prefix(("base", "record", "search")) == 1, f"log={log}"
+    assert count_prefix(("base", "record", "create")) == 1, f"log={log}"
+    assert count_prefix(("im", "message", "send")) == 1, f"log={log}"
 
 
 def test_resume_skips_done_steps(mock_server, tmp_dirs, monkeypatch):
@@ -95,5 +101,7 @@ def test_resume_skips_done_steps(mock_server, tmp_dirs, monkeypatch):
     assert second["status"] == "ok", f"resume run failed: {second}"
 
     log = json.loads(tmp_dirs["dryrun_log"].read_text(encoding="utf-8"))
-    verbs = [" ".join(e["args"][:3]) for e in log]
-    assert verbs == ["im message send"], f"unexpected verbs on resume: {verbs}"
+    assert len(log) == 1, f"expected only 1 invocation, got: {log}"
+    assert tuple(log[0]["args"][:3]) == ("im", "message", "send"), (
+        f"unexpected invocation on resume: {log[0]}"
+    )

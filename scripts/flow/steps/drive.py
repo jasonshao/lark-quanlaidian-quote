@@ -47,11 +47,10 @@ def upload_with_dedup(
                 "reused": True,
             }
 
-    # lark-cli drive upload: the identifying args are exactly ["drive", "upload"]
-    # (2 elements), so " ".join(args[:3]) == "drive upload" for verb assertions.
-    # The folder and file are passed via environment / stdin in real-mode use.
     uploaded = cli.run(
-        ["drive", "upload"],
+        ["drive", "upload",
+         "--parent", folder_token,
+         "--file", str(local_path)],
         dry_run_response={"file_token": "DRY_FT", "url": "https://dry/drive/" + name},
     )
     return {
