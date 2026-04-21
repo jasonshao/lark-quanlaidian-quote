@@ -19,7 +19,7 @@ from __future__ import annotations
 import hashlib
 import time
 
-from fastapi import FastAPI, Header, HTTPException, Response
+from fastapi import FastAPI, Header, HTTPException, Request, Response
 from pydantic import BaseModel
 
 
@@ -69,7 +69,7 @@ def create_quote(form: dict, x_idempotency_key: str = Header(default="")):
 
 
 @app.post("/v1/quotes/{quote_id}/render/{fmt}")
-def render(quote_id: str, fmt: str):
+def render(request: Request, quote_id: str, fmt: str):
     if fmt not in {"pdf", "xlsx", "json"}:
         raise HTTPException(404, "unsupported format")
     key = (quote_id, fmt)
@@ -78,10 +78,11 @@ def render(quote_id: str, fmt: str):
 
     token = f"ft_{quote_id}_{fmt}"
     filename = f"mock-{quote_id}.{fmt}"
+    base_url = str(request.base_url).rstrip("/")
     ref = {
         "file_token": token,
         "filename": filename,
-        "url": f"http://localhost:8000/files/{token}/{filename}",
+        "url": f"{base_url}/files/{token}/{filename}",
     }
     _RENDERS[key] = ref
     return ref
