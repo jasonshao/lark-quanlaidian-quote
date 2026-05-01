@@ -1,0 +1,20 @@
+{
+  "_doc": "Golden envelope produced by `LARK_CLI_DRYRUN=1 run_flow.py run --form-json examples/form.sample.json` against examples/mock_server.py. Values marked with !regex! must match the regex; everything else is exact.",
+  "status": "ok",
+  "request_id": "!regex!^req_\\d{14}$",
+  "quote_id": "!regex!^q_\\d{14}_[0-9a-f]{8}$",
+  "totals": {
+    "list": 300000,
+    "final": 300000
+  },
+  "drive": {
+    "pdf_url": "!regex!^https://dry/drive/mock-q_\\d{14}_[0-9a-f]{8}\\.pdf$",
+    "xlsx_url": "!regex!^https://dry/drive/mock-q_\\d{14}_[0-9a-f]{8}\\.xlsx$"
+  },
+  "record": {
+    "url": "https://dry/base/rec"
+  },
+  "im": {
+    "message_id": "DRY_MSG"
+  }
+}

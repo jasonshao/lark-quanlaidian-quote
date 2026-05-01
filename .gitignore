@@ -1,7 +1,17 @@
-# Secrets
+# Secrets — never commit any of these
 .env
+.env.*
+!.env.example
+*.token
+*.tokens
+*.pem
+*.key
 
-# Runtime state
+# lark-cli profile data (cached tokens, app secrets)
+.lark-cli/
+.larkcli/
+
+# Runtime state / artifacts
 .quanlaidian-flow-state/
 tmp/
 

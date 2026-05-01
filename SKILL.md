@@ -10,7 +10,9 @@ metadata:
 
 # lark-quanlaidian-quote (0.1.0)
 
-**CRITICAL — 开始前 MUST 先用 Read 工具读取 `../lark-shared/SKILL.md`，其中包含认证、权限处理。**
+> **Agent-neutral skill**：本文件用于任何支持 system-prompt + 命令行工具调用的 Agent（如 Claude Code、Cursor、Gemini CLI、lark-cli 内置 agent 等）。下面的"读取/执行/写入"全部指通用文件 / shell 操作，不绑定任何特定厂商函数。
+
+**前置（如果 `../lark-shared/SKILL.md` 存在则先读取）**：里面有共享的飞书认证 / 权限处理约定。如果不存在请忽略。
 
 餐饮 SaaS 报价 Agent。销售用自然语言说"给 X 品牌报 N 家店 XX 套餐"，Agent 自动完成：算价 → PDF/Excel 生成 → 飞书云盘归档 → 多维表格台账 → 销售群卡片通知。
 
